@@ -1,0 +1,6 @@
+SELECT DISTINCT Salary
+FROM (
+    SELECT Salary, DENSE_RANK() OVER (ORDER BY Salary DESC) AS Rank
+    FROM Employees
+) AS RankedSalaries
+WHERE Rank = 2;
